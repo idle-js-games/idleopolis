@@ -1,0 +1,388 @@
+
+/**
+ * All Color definitions
+ */
+$io-color-screen:               darken(green, 10%);
+$io-color-text:                 white;
+$io-color-border:               white;
+
+$io-color-log-info:             white;
+$io-color-log-launch:           green;
+$io-color-log-encounter:        orange;
+$io-color-log-warning:          #f60;
+
+$io-color-button-default:       $io-color-screen;
+$io-color-button-population:    #2d5a80;
+$io-color-button-resource:      #388c4b;
+$io-color-button-knowledge:     #978;    // ! //
+
+$io-color-tab:                  transparent;
+$io-color-tab-active:           white;
+$io-color-tab-active-text:      $io-color-screen;
+
+
+/**
+ * Borders
+ */
+$io-border-width-panel:         1px;
+$io-border-radius-planet:       1px;
+$io-border-width-button:        2px;
+
+$io-border-radius-panel:        0;
+$io-border-radius-planet:       14px;
+$io-border-radius-button:       10px;
+
+
+/**
+ * Buttons
+ */
+button,
+.button {
+    padding: 8px 12px;
+      
+    border: 0;
+    background: transparent;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+
+    text-align: center;
+    
+    &:hover,
+    &.active {
+        background-position: 0 -40px;
+    }
+    
+    &:active {
+        background-position: 0 -80px;
+    }
+    
+    &:disabled {
+        background-position: 0 -120px;
+    }
+}
+
+
+
+/**
+ * LAYOUT
+ */
+body {    
+    background: $io-color-screen;
+    color: $io-color-text;
+    
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 300;
+}
+
+img {
+    vertical-align: text-bottom;
+}
+strong {
+    font-weight: 400;
+}
+
+.io-wrapper {
+    box-sizing: border-box;
+    width: 1024px;
+    height: 570px;
+    margin: 0 auto;
+    padding: 10px;
+    overflow: hidden;
+}
+
+/*
+#io-log {
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    height: 8rem;
+    overflow-y: scroll;
+    width: 50%;
+    
+    background: transparent;
+    border: 1px solid lighten($io-color-screen, 10%);
+    
+    font-size: 0.85em;
+}
+*/
+
+#io-game-menu {
+    float: left;
+    width: auto;
+    
+    .button {
+        float: left;
+        width: 40px;
+        height: 40px;
+        margin-right: 4px;
+        padding: 8px;
+        
+        background-image: url('../images/menu/menu-button-40x40.png');
+
+        &:last-child {
+            margin: 0;
+        }
+    }
+}
+
+.io-pane-title {
+    box-sizing: border-box;
+    width: 216px;
+    height: 40px;
+    padding: 9px;
+    background: url('../images/pane/pane-title-background-216x40.png') top left no-repeat;
+    text-align: center;
+}
+
+#io-resources-overview {
+    overflow: auto;
+    float: right;
+    width: auto;
+    margin: 0 auto 1rem;
+    
+    .io-resource {
+        float: left;
+        box-sizing: border-box;
+        width: 120px;
+        height: 40px;
+        padding: 8px 12px 8px 8px;
+        margin-right: 6px;
+        
+        background: url('../images/resources/res-background1-120x40.png') top left no-repeat;
+
+        &:last-child {
+            margin-right: 2px;
+        }
+        
+        &:nth-child(2) {
+            background: url('../images/resources/res-background2-120x40.png') top left no-repeat;
+        }
+        &:nth-child(3) {
+            background: url('../images/resources/res-background3-120x40.png') top left no-repeat;
+        }
+        &:nth-child(4) {
+            background: url('../images/resources/res-background4-120x40.png') top left no-repeat;
+        }
+        &:nth-child(5) {
+            background: url('../images/resources/res-background1-120x40.png') top left no-repeat;
+        }
+        &:nth-child(6) {
+            background: url('../images/resources/res-background3-120x40.png') top left no-repeat;
+        }
+    }
+    
+    .io-metric {
+        //
+    }
+    
+    .io-value {
+        float: right;
+    }
+    .io-unit {
+        float: right;
+    }
+}
+
+
+/*
+ * The main game area
+ * contains the panes
+ */
+.io-main-wrapper {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/*
+ * Wrapper for all the game panes
+ */
+.io-panes-wrapper {
+    width: 4 * 1004px;
+}
+
+.io-pane {
+    float: left;
+    width: 1004px;
+}
+
+/**
+ * MAP PANE
+ */
+#io-build-menu {
+    overflow: auto;
+    float: left;
+    width: 216px;
+    margin: 0 25px 0 0;
+}
+
+.io-build-item {
+    width: auto;
+    margin-bottom: 1rem;
+    
+    .button {
+        display: inline-block;
+        width: 100%;
+        height: 40px;
+        padding: 8px 10px;
+        
+        background-image: url('../images/buildings/build-button-216x40.png');
+        text-align: left;
+    }
+}
+
+/*
+ * Land square
+ */
+#io-the-land {
+    width: 11 * 68px + 15px;
+    height: 7 * 68px;
+    overflow: auto;
+    float: left; 
+    margin: 5px 0;
+}
+
+.io-land-square {
+    position: relative;
+    float: left;
+    box-sizing: border-box;
+    width: 68px;
+    height: 68px;
+    
+    background: lighten($io-color-screen, 4%);
+    //border-bottom: 1px solid darken($io-color-screen, 0);
+    
+    font-size: 0.8em;
+    text-align: center;
+    
+    .house,
+    .factory,
+    .school {
+        width: 68px;
+        height: 68px;
+        //background: url('../images/buildings/street-full-68.png') top left no-repeat;
+    }
+    
+    &:nth-child(11n+1) {
+        .house,
+        .factory,
+        .school {
+            //background: url('../images/buildings/street-start-68.png') top left no-repeat;
+        }
+    }
+    
+    &:nth-child(11n+11) {
+        .house,
+        .factory,
+        .school {
+            //background: url('../images/buildings/street-end-68.png') top left no-repeat;
+        }
+    }
+    
+    &:nth-child(2n) {
+        background: lighten($io-color-screen, 2%);
+        //border-bottom: 1px solid darken($io-color-screen, 1%);
+    }
+}
+
+.io-square-progress-bar-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 33%;
+    width: 66%;
+    margin-left: -16%;
+    
+    background: grey;
+}
+    
+.io-square-progress-bar {
+    height: 4px;
+    width: 0%;
+    transition: width linear 0.1s;
+    
+    background: white;
+    
+    text-align: center;
+}
+
+.house {
+    background: url(../images/buildings/map-buildings-68.png) 0 0 no-repeat;
+    
+    .io-square-progress-bar-wrapper {
+        background: transparentize(aqua, 0.7);   
+    }
+    .io-square-progress-bar {
+        background: aqua;
+    }    
+}
+.factory {
+    .io-square-progress-bar-wrapper {
+        background: transparentize(lime, 0.7);;   
+    }
+    .io-square-progress-bar {
+        background: lime;
+    }
+}
+.school {
+    .io-square-progress-bar-wrapper {
+        background: transparentize(orange, 0.7);;   
+    }
+    .io-square-progress-bar {
+        background: orange;
+    }
+}
+
+.io-collect-message {
+    text-transform: uppercase;
+}
+
+/**
+ * RESEARCH PANE
+ */
+.io-research-item {
+    overflow: auto;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid green;
+    
+        
+    .button {
+        float: right;
+        width: 216px;
+        height: 40px;
+        padding: 8px 10px;
+        
+        background-image: url('../images/research/research-button-216x40.png');          
+    }
+}
+
+/** 
+ * STATS PANE
+ */
+#io-stats-pane {
+    table {
+        width: 50%;
+    }
+    
+    tr:nth-child(2n) {
+        td {
+            background: lighten($io-color-screen, 2%); 
+        }
+    }
+    
+    th {
+        padding: 6px 4px;
+        background: darken($io-color-screen, 2%);
+        border-top: 2px solid lighten($io-color-screen, 4%);
+        text-align: left;
+    }
+    td {
+        padding: 2px 8px;
+        //border-bottom: 2px solid lighten($io-color-screen, 4%);
+    }
+    
+    td:last-child {
+        text-align: right;
+    }
+}

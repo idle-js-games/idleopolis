@@ -1,0 +1,7 @@
+<div ng-if="building.type" ng-class="building.type">
+    <div class="io-square-progress-bar-wrapper">
+        <div class="io-square-progress-bar" ng-style="{ width: building.progress + '%' }"></div>
+    </div>
+    <span class="io-collect-message" ng-if="building.collect > 0">Collect!</span>
+    <!-- &uarr; {{ building.upgradeCostCurrency }}/{{ building.upgradeCostSupplies }} -->
+</div>
